@@ -8,7 +8,17 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ProductTest();
+
+            ProductManager productManager = new ProductManager(new EfProductDal());
+            foreach (var product in productManager.GetAll().Data)
+            {
+                Console.WriteLine(product.ProductName);
+            }
+
+
+
+
+            //ProductTest();
 
             //CategoryTest();
         }
